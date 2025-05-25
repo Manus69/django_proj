@@ -1,8 +1,16 @@
 {% extends "recipeapp/base.html" %}
 
 {% block body %}
-<h1> cock </h1>
+<h1> test </h1>
 <div>
-    {% lorem 3 p %}
+    <ul>
+        {% for r in recs|slice:":5" %}
+        <li>
+            <h2>{{ r.name }} </h2>
+            <p>{{ r.desc }}</p>
+            <p>Author : {{ r.auth }}</p>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}

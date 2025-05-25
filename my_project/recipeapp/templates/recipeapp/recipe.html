@@ -1,0 +1,12 @@
+{% extends "recipeapp/base.html" %}
+
+{% block title %}
+    Some recipe
+{% endblock %}
+
+{% block body %}
+    <h1> {{rec.name}} </h1>
+    <h2>
+        {{ rec.desc }}
+    </h2>
+{% endblock %}
