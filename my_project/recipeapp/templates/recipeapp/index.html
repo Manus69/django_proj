@@ -6,7 +6,10 @@
     <ul>
         {% for r in recs|slice:":10" %}
         <li>
-            <h2>{{ r.name }} </h2>
+            <!-- <h2>{{ r.name }} </h2> -->
+             <p><a href="{% url 'recipeapp:recipe' _pk=r.pk %}">
+                {{ r.name }}
+             </a></p>
             <p>{{ r.desc }}</p>
             <p>Author : {{ r.auth }}</p>
         </li>

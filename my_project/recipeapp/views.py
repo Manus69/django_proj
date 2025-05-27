@@ -1,5 +1,6 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
+from django.contrib.auth import authenticate, login
 from .models import Recipe
 from .forms import RecipeForm
 
@@ -41,6 +42,6 @@ def rec_create(request):
     return render(request, "recipeapp/create.html", context=context)
 
 def rec_view(request, _pk):
-    rec = Recipe.objects.get(pk=_pk)
+    rec = get_object_or_404(Recipe, pk=_pk)
 
     return render(request, "recipeapp/recipe.html", {"rec" : rec})
