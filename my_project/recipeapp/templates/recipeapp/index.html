@@ -4,7 +4,7 @@
 <h1> test </h1>
 <div>
     <ul>
-        {% for r in recs|slice:":5" %}
+        {% for r in recs|slice:":10" %}
         <li>
             <h2>{{ r.name }} </h2>
             <p>{{ r.desc }}</p>
@@ -12,5 +12,10 @@
         </li>
         {% endfor %}
     </ul>
+</div>
+<div>
+    <a href="{% url 'recipeapp:create' %}">
+        Create a new recipe
+    </a>
 </div>
 {% endblock %}
