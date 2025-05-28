@@ -6,6 +6,8 @@ class RecipeForm(forms.ModelForm):
         model = Recipe
         fields = "name", "desc", "alg", "time",
 
+
+
 # class RecipeForm(forms.Form):
 #     name = forms.CharField(label="Name ", max_length=CF_LEN_MAX)
 #     desc = forms.CharField(label="Description ", widget=forms.Textarea)

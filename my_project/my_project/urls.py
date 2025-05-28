@@ -16,13 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.shortcuts import redirect
-from django.contrib.auth.views import LoginView
 from django.urls import path, include
+
 
 urlpatterns = [
     path('', lambda _ : redirect('recipe/')),
     path('admin/', admin.site.urls),
     path('recipe/', include('recipeapp.urls')),
-    path("login/", LoginView.as_view(template_name="recipeapp/login.html", redirect_authenticated_user=True), name="login"),
-
+    path("user/", include('userapp.urls')),
 ]

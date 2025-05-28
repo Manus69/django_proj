@@ -1,4 +1,6 @@
-{% extends "recipeapp/base.html" %}
+
+{% extends "my_project/base.html" %}
+
 
 {% block body %}
 <h1> test </h1>
@@ -6,7 +8,6 @@
     <ul>
         {% for r in recs|slice:":10" %}
         <li>
-            <!-- <h2>{{ r.name }} </h2> -->
              <p><a href="{% url 'recipeapp:recipe' _pk=r.pk %}">
                 {{ r.name }}
              </a></p>
