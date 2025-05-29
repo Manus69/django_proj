@@ -3,6 +3,7 @@ from django.urls import path
 from .views import user_view
 from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
+from .views import UserRegisterView
 
 
 app_name = "userapp"
@@ -13,9 +14,9 @@ def my_logout(request):
     return redirect("/")
 
 urlpatterns = [
-    path("profile", user_view, name="profile"),
+    path("profile/", user_view, name="profile"),
     path("login/", LoginView.as_view(template_name="userapp/login.html", redirect_authenticated_user=True), name="login"),
-    path("logout/", my_logout, name="logout")
-
+    path("logout/", my_logout, name="logout"),
+    path("register/", UserRegisterView.as_view(), name="register")
     
 ]
