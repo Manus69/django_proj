@@ -1,0 +1,14 @@
+{% extends "my_project/base.html" %}
+
+{% block title %}
+    User info
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h2>
+            User info
+        </h2>
+        <p>Name : {{ user.username }}</p>
+    </div>
+{% endblock %}
