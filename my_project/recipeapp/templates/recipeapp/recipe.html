@@ -5,32 +5,45 @@
 {% endblock %}
 
 {% block body %}
-    <h1> {{rec.name}} </h1>
-    <div>
+    <div class="container mb-3">
+        <h1> {{rec.name}} </h1>
+        <hr>
+    </div>
+    <div class="container mb-3">
+        <p>Description</p>
         {{ rec.desc }}
-
+        <hr>
     </div>
-    <div>
+    <div class="container mb-3">
+        <p>Algorithm</p>
         {{ rec.alg }}
+        <hr>
     </div>
-    <div>
+    <div class="container mb-3">
+        <p>Author</p>
         {% if rec.auth %}
-        Author : <a href="{% url 'userapp:user' name=rec.auth.username %}">{{rec.auth.username}}</a>
+        <a href="{% url 'userapp:user' name=rec.auth.username %}">{{rec.auth.username}}</a>
+        {% else %}
+        <p>Anonymous</p>
         {% endif %}
+        <hr>
     </div>
     {% if rec.img %}
-    <div>
+    <div class="container mb-3">
         <img src="{{ rec.img.url }}">
+        <hr>
     </div>
     {% endif %}
     {% if rec.auth == request.user %}
-    <div>
-        <a href="{% url 'recipeapp:update' pk=rec.pk %}">Update</a>
+    <div class="container mb-3">
+        <a class="btn btn-primary" href="{% url 'recipeapp:update' pk=rec.pk %}">Update</a>
+        <hr>
     </div>
     {% endif %}
-    <div>
-        <a href="{% url 'recipeapp:index' %}">
+    <div class="container mb-3">
+        <a class="btn btn-primary" href="{% url 'recipeapp:index' %}">
             Back
         </a>
+        <hr>
     </div>
 {% endblock %}

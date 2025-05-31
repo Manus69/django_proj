@@ -5,9 +5,11 @@ from .models import Recipe
 from .forms import RecipeForm
 
 # Create your views here.
+import random
 def rec_index(request):
     context = {
-        "recs" : Recipe.objects.all()
+        "recs" : Recipe.objects.order_by('?')
+        # "recs" : Recipe.objects.all()
     }
 
     return render(request, "recipeapp/index.html", context)
@@ -48,9 +50,11 @@ def rec_update(request, pk):
     
     return render(request, "recipeapp/create.html", {"form" : form})
 
+from django.contrib import messages
 
 def rec_view(request, _pk):
     rec = get_object_or_404(Recipe, pk=_pk)
 
+    messages.debug(request, f"Obj : {rec.name} {rec.auth} {rec.img}")
     return render(request, "recipeapp/recipe.html", {"rec" : rec})
 

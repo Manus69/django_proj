@@ -3,23 +3,27 @@
 
 
 {% block body %}
-<h1> test </h1>
-<div>
-    <ul>
-        {% for r in recs|slice:":20" %}
-        <li>
-             <p><a href="{% url 'recipeapp:recipe' _pk=r.pk %}">
-                {{ r.name }}
-             </a></p>
-            <p>{{ r.desc }}</p>
-            <p>Author : {{ r.auth }}</p>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-<div>
-    <a href="{% url 'recipeapp:create' %}">
-        Create a new recipe
-    </a>
+<div class="container mb-3">
+    <h1> Recipe book </h1>
+    <hr>
+    <div class="container mb-3">
+        <ul>
+            {% for r in recs|slice:":5" %}
+            <li>
+                 <p><a href="{% url 'recipeapp:recipe' _pk=r.pk %}">
+                    {{ r.name }}
+                 </a></p>
+                <p>{{ r.desc }}</p>
+                <p>Author : {{ r.auth }}</p>
+            </li>
+            <hr>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="container mb-3">
+        <a class="btn btn-primary" href="{% url 'recipeapp:create' %}">
+            Create a new recipe
+        </a>
+    </div>
 </div>
 {% endblock %}

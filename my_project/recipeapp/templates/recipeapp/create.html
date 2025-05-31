@@ -28,15 +28,16 @@
 </form> -->
 {% endcomment %}
 
-
-<h1>
-    New recipe
-</h1>
-<div>
+<div class="mb-3 container">
+    <h1>
+        New recipe
+    </h1>
+</div>
+<div class ="mb-3 container">
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">
+        <button class="btn btn-primary" type="submit">
             Submit
         </button>
     </form>
