@@ -56,5 +56,7 @@ def rec_view(request, _pk):
     rec = get_object_or_404(Recipe, pk=_pk)
 
     messages.debug(request, f"Obj : {rec.name} {rec.auth} {rec.img}")
+    print("dbg", type(rec.img))
+
     return render(request, "recipeapp/recipe.html", {"rec" : rec})
 
