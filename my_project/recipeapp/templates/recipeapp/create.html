@@ -5,22 +5,46 @@
 {% endblock %}
 
 {% block body %}
-    <h1>
-        New recipe
-    </h1>
-    <div>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">
-                Create
-            </button>
-        </form>
-    </div>
-    <div>
-        <a href="{% url 'recipeapp:index' %}">
-            Back
-        </a>
-    </div>
-{% endblock %}
 
+
+{% comment %}
+<form method="post">
+    {% csrf_token %}
+
+  
+<!-- <div class="mb-3">
+  <label for="name" class="form-label">Name</label>
+  <input type="text" class="form-control" id="name">
+</div>
+<div class="mb-3">
+  <label for="desc" class="form-label">Description</label>
+  <textarea class="form-control" id="desc" rows="3"></textarea>
+</div>
+<div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+
+
+</form> -->
+{% endcomment %}
+
+
+<h1>
+    New recipe
+</h1>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">
+            Create
+        </button>
+    </form>
+</div>
+<div>
+    <a href="{% url 'recipeapp:index' %}">
+        Back
+    </a>
+</div>
+
+{% endblock %}

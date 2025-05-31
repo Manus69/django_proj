@@ -14,6 +14,16 @@
         {{ rec.alg }}
     </div>
     <div>
+        {% if rec.auth %}
+        Author : <a href="{% url 'userapp:user' name=rec.auth.username %}">{{rec.auth.username}}</a>
+        {% endif %}
+    </div>
+    {% if rec.img %}
+    <div>
+        <img src="{{ rec.img.url }}">
+    </div>
+    {% endif %}
+    <div>
         <a href="{% url 'recipeapp:index' %}">
             Back
         </a>

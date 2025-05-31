@@ -4,7 +4,7 @@ from .models import CF_LEN_MAX, Recipe
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = "name", "desc", "alg", "time",
+        fields = "name", "desc", "alg", "time", "img"
 
 
 

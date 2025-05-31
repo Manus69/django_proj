@@ -15,13 +15,13 @@ def rec_create(request):
 
     form = RecipeForm()
     if request.method == "POST":
-        form = RecipeForm(request.POST)
+        form = RecipeForm(request.POST, request.FILES)
 
         if form.is_valid():
             form.cleaned_data["auth"] = request.user
             
-            # form.save()
             Recipe.objects.create(** form.cleaned_data)
+            # form.save()
 
             url = reverse("recipeapp:index")
             return redirect(url)
