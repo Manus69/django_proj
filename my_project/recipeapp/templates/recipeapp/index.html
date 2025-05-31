@@ -6,7 +6,7 @@
 <h1> test </h1>
 <div>
     <ul>
-        {% for r in recs|slice:":10" %}
+        {% for r in recs|slice:":20" %}
         <li>
              <p><a href="{% url 'recipeapp:recipe' _pk=r.pk %}">
                 {{ r.name }}

@@ -23,6 +23,11 @@
         <img src="{{ rec.img.url }}">
     </div>
     {% endif %}
+    {% if rec.auth == request.user %}
+    <div>
+        <a href="{% url 'recipeapp:update' pk=rec.pk %}">Update</a>
+    </div>
+    {% endif %}
     <div>
         <a href="{% url 'recipeapp:index' %}">
             Back
