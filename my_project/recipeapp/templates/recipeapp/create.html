@@ -6,28 +6,6 @@
 
 {% block body %}
 
-
-{% comment %}
-<form method="post">
-    {% csrf_token %}
-
-  
-<!-- <div class="mb-3">
-  <label for="name" class="form-label">Name</label>
-  <input type="text" class="form-control" id="name">
-</div>
-<div class="mb-3">
-  <label for="desc" class="form-label">Description</label>
-  <textarea class="form-control" id="desc" rows="3"></textarea>
-</div>
-<div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</div>
-
-
-</form> -->
-{% endcomment %}
-
 <div class="mb-3 container">
     <h1>
         New recipe
@@ -42,7 +20,7 @@
         </button>
     </form>
 </div>
-<div>
+<div class="container mb-3">
     <a href="{% url 'recipeapp:index' %}">
         Back
     </a>

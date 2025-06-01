@@ -5,7 +5,6 @@ from .models import Recipe
 from .forms import RecipeForm
 
 # Create your views here.
-import random
 def rec_index(request):
     context = {
         "recs" : Recipe.objects.order_by('?')
@@ -13,6 +12,15 @@ def rec_index(request):
     }
 
     return render(request, "recipeapp/index.html", context)
+
+def rec_search(request, name):
+    return render(request, "recipeapp/index.html", { "recs" : Recipe.objects.filter(name__contains=name)})
+
+def rec_search2(request):
+    string = request.GET.get("search_bar")
+    # print(string, type(string))
+
+    return rec_search(request, string)
 
 @login_required(login_url="userapp:login")
 def rec_create(request):
