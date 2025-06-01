@@ -10,6 +10,4 @@ urlpatterns = [
     path("<int:_pk>", rec_view, name="recipe"),
     path("search/<str:name>", rec_search, name="search"),
     path("search2/", rec_search2, name="search2")
-    # path("search/(?P<title>.+?)/$", rec_search, name="search")
-
 ]
